@@ -1,61 +1,197 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# GoPub - Academic Publishing Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+GoPub is a modern web-based academic publishing platform built with Laravel. It allows users to publish, search, and manage academic publications with role-based access control.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- User authentication and authorization
+- Role-based access (Admin, Publisher, User)
+- Publication management (create, edit, delete, view)
+- Advanced search with auto-suggestions
+- User management for administrators
+- Responsive design with modern UI/UX
+- Publication analytics (views, downloads)
+- File upload support
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## User Roles
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Admin
+- Manage all users and publications
+- Create, edit, delete users
+- Full system access
+- View system analytics
 
-## Learning Laravel
+### Publisher
+- Create and manage own publications
+- Edit publication status
+- View publication analytics
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### User
+- View and search publications
+- Download publications
+- Basic profile management
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Screenshots
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Home Page (Guest)
+![Home Guest](screenshot/home-guest.png)
 
-## Laravel Sponsors
+### Login Page
+![Login](screenshot/login.png)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Register Page
+![Register](screenshot/register.png)
 
-### Premium Partners
+### Admin Dashboard
+![Admin Dashboard](screenshot/admin-dashboard.png)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Publisher Dashboard
+![Publisher Dashboard](screenshot/publisher-dashboad.png)
 
-## Contributing
+### User Dashboard
+![User Dashboard](screenshot/user-dashboard.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Manage Publications
+![Manage Publications](screenshot/manage-publication.png)
 
-## Code of Conduct
+### Manage Users (Admin)
+![Manage Users](screenshot/manage-user.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Upload Publication
+![Upload Publication](screenshot/upload-publication.png)
 
-## Security Vulnerabilities
+### Publication Detail
+![Read Publication](screenshot/read-publication-page.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Search Page
+![Search](screenshot/search-guest.png)
+
+### User Profile
+![User Profile](screenshot/user-profile.png)
+
+## Installation
+
+### Requirements
+- PHP 8.1 or higher
+- Composer
+- MySQL/MariaDB
+- Node.js and NPM
+
+### Setup Instructions
+
+1. Clone the repository
+```bash
+git clone https://github.com/WiMProject/gopub.git
+cd gopub
+```
+
+2. Install PHP dependencies
+```bash
+composer install
+```
+
+3. Install Node.js dependencies
+```bash
+npm install
+```
+
+4. Copy environment file
+```bash
+cp .env.example .env
+```
+
+5. Configure database in .env file
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=gopub
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
+
+6. Generate application key
+```bash
+php artisan key:generate
+```
+
+7. Run database migrations
+```bash
+php artisan migrate
+```
+
+8. Seed the database
+```bash
+php artisan db:seed
+```
+
+9. Create storage link
+```bash
+php artisan storage:link
+```
+
+10. Build assets
+```bash
+npm run build
+```
+
+11. Start the development server
+```bash
+php artisan serve
+```
+
+The application will be available at http://localhost:8000
+
+## Default Users
+
+After seeding, you can login with these accounts:
+
+### Admin
+- Email: admin@gopub.com
+- Password: password
+
+### Publisher
+- Email: publisher@gopub.com
+- Password: password
+
+### User
+- Email: user@gopub.com
+- Password: password
+
+## Usage
+
+### For Publishers
+1. Login with publisher account
+2. Go to Publications menu
+3. Click "Create Publication"
+4. Fill in publication details
+5. Submit for review
+
+### For Admins
+1. Login with admin account
+2. Manage users from Users menu
+3. Approve/reject publications
+4. View system analytics
+
+### For Users
+1. Register or login
+2. Browse publications
+3. Use search with filters
+4. Download publications
+
+## Technology Stack
+
+- Backend: Laravel 11
+- Frontend: Blade Templates, Bootstrap
+- Database: MySQL
+- Authentication: Laravel Breeze
+- File Storage: Local Storage
+- Search: MySQL Full-Text Search
+
+## Developer
+
+Created by Wildan Miladji (WIM)
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the MIT license.
